@@ -1,0 +1,41 @@
+# Compiler files
+cache/
+out/
+zkout/
+
+# Broadcast logs
+broadcast/
+!broadcast/.gitkeep
+
+# Docs
+docs/
+
+# Env files
+.env
+
+# OS files
+.DS_Store
+
+# Gas reports
+gas-report.txt
+coverage.txt
+
+# -------------------------
+# 🔥 IMPORTANT ADDITIONS
+# -------------------------
+
+# Dependency noise (very important)
+lib/**/test/
+lib/**/.github/
+lib/**/script/
+lib/**/broadcast/
+lib/**/lib/
+lib/**/.gitmodules
+
+# Foundry extras
+*.log
+*.json
+
+# VS Code / Editor
+.vscode/
+.idea/
