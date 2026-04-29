@@ -20,13 +20,11 @@ contract ZkSyncDevopsTest is Test, ZkSyncChainChecker {
     function setUp() public {
         if (isZkSyncChain()) {
             // Deploy manually for zkSync
-            MockV3Aggregator mockPriceFeed =
-                new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
+            MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
             fundMe = new FundMe(address(mockPriceFeed));
         } else {
             // Dummy deploy for non-zkSync (so test file doesn't break)
-            MockV3Aggregator mockPriceFeed =
-                new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
+            MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
             fundMe = new FundMe(address(mockPriceFeed));
         }
 

@@ -1,4 +1,3 @@
-
 // pragma solidity ^0.8.18;
 
 // import {Test, console} from "forge-std/Test.sol";
@@ -34,9 +33,6 @@
 //     }
 // }
 
-
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
@@ -57,20 +53,20 @@ contract InteractionsTest is Test {
         vm.deal(USER, STARTING_BALANCE);
     }
 
-  function testUserCanFundAndWithdrawInteractions() public {
-    // Fund as USER
-    vm.startPrank(USER);
-    vm.deal(USER, STARTING_BALANCE);
-    fundMe.fund{value: SEND_VALUE}();
-    vm.stopPrank();
+    function testUserCanFundAndWithdrawInteractions() public {
+        // Fund as USER
+        vm.startPrank(USER);
+        vm.deal(USER, STARTING_BALANCE);
+        fundMe.fund{value: SEND_VALUE}();
+        vm.stopPrank();
 
-    // Withdraw as owner
-    address owner = fundMe.getOwner();
+        // Withdraw as owner
+        address owner = fundMe.getOwner();
 
-    vm.startPrank(owner);
-    fundMe.withdraw();
-    vm.stopPrank();
+        vm.startPrank(owner);
+        fundMe.withdraw();
+        vm.stopPrank();
 
-    assert(address(fundMe).balance == 0);
-}
+        assert(address(fundMe).balance == 0);
+    }
 }
